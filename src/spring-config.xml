@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+       <aop:config>
+              <aop:aspect id="log" ref="logging">
+                     <aop:pointcut id="selectALL" expression="execution(* com.atlantis.code.*.*(..))"/>
+                     <aop:before method="beforeAdvice" pointcut-ref="selectALL"/>
+                     <aop:after method="afterAdvice" pointcut-ref="selectALL"/>
+                     <aop:after-returning method="afterReturningAdvice" pointcut-ref="selectALL" returning="retVal"/>
+                     <aop:after-throwing method="AfterThrowingAdvice" pointcut-ref="selectALL" throwing="ex"/>
+              </aop:aspect>
+       </aop:config>
+
+       <bean id="student" class="com.atlantis.code.Student">
+              <property name="age" value="18"/>
+              <property name="name" value="atlantis 666"/>
+       </bean>
+
+       <bean id="logging" class="com.atlantis.code.Logging">
+
+       </bean>
+
+
+</beans>
