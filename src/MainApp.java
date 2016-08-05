@@ -40,7 +40,7 @@ public class MainApp {
 //            System.out.print(", Name : " + su.getName() );
 //            System.out.println(", Age : " + su.getAge());
 //        }
-//        System.out.println("----Updating Record with ID = 2 -----" );
+//        System.out.println("----Updating Record with ID = 2 --" );
 //        studentJDBCTemplate.update(2, 20);
 //        System.out.println("----Listing Record with ID = 2 -----" );
 //        Student student = studentJDBCTemplate.getStudent(2);
